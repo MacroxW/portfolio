@@ -1,0 +1,31 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+const EXPERIENCIE = [
+    {
+        title: "Programador Full Stack",
+        date: "2023-Actualidad",
+        company: "Renvance",
+        description:
+            "Responsable del desarrollo frontend en ReactTS. Implementación de todos los componentes, funcionalidad, diseño y estructura de la aplicación. Entre los microservicios, llevé a cabo el desarrollo de la api de Smart Contracts, para deployar tokens de propiedad; Tests de integración entre microservicios y desarrollo de los mismos trabajando con Python y NodeJs",
+        link: "https://renvance.com",
+    },
+    {
+        title: "Programador Principal en Frontend",
+        date: "2022-2023",
+        company: "Pym Gestiones",
+        description:
+            "Encargado de desarrollar un sitio web personalizado que satisfaga las necesidades específicas de un cliente. El frontend se realizó utilizando ReactTS con Redux y para el backend hemos utilizado Aspnet (C#). el diseño de la página corresponde a un diseño personalizado hecho por el cliente.",
+        link: "https://pymgestiones.com.ar",
+    },
+];
+---
+
+<ol class="relative mt-16">
+    {
+        EXPERIENCIE.map((experiencie) => (
+            <li class="">
+                <ExperienceItem {...experiencie} />
+            </li>
+        ))
+    }
+</ol>

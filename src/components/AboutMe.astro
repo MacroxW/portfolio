@@ -1,0 +1,52 @@
+
+<article
+    class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row item-show-up"
+>
+    <div
+        class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
+    >
+        <p>
+            A lo largo de mi trayectoria, he adquirido un conjunto diverso de
+            habilidades y conocimientos, que van más allá de la simple
+            programación. Mi enfoque no se limita únicamente a la resolución de
+            problemas técnicos, sino que también abarca el desarrollo de
+            <strong>soluciones innovadoras</strong> y la <strong>
+                capacidad de adaptarme</strong
+            > a entornos cambiantes.
+        </p>
+        <p>
+            Me distingo por mi dedicación, mi capacidad para enfrentar desafíos
+            y mi compromiso con la excelencia en todo lo que hago. Estoy
+            emocionado por la posibilidad de contribuir con mi experiencia y
+            pasión al éxito de su empresa, aportando mi energía y mis
+            habilidades para impulsar la innovación y el crecimiento en el
+            ámbito tecnológico.
+        </p>
+    </div>
+
+   
+</article>
+
+<style>
+    .item-show-up {
+        view-timeline-name: --image;
+        view-timeline-axis: block;
+
+        animation-timeline: --image;
+        animation-name: show;
+
+        animation-range: entry 15% cover 30%;
+        animation-fill-mode: both;
+    }
+    @keyframes show {
+        from {
+            opacity: 0;
+            scale: 45%;
+        }
+
+        to {
+            opacity: 1;
+            scale: 100%;
+        }
+    }
+</style>
