@@ -1,40 +1,44 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro"
+import config from "@/config"
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "")
 
 const navItems = [
   {
     title: "Experiencia",
     label: "experiencia",
-    url: "/#experiencia",
+    url: `${base}/#experiencia`,
   },
   {
     title: "Proyectos",
     label: "proyectos",
-    url: "/#proyectos",
+    url: `${base}/#proyectos`,
   },
   {
-    title: "Sobre mí",
-    label: "sobre-mi",
-    url: "/#sobre-mi",
+    title: "Capacidades",
+    label: "capacidades",
+    url: `${base}/#capacidades`,
   },
   {
     title: "Contacto",
     label: "contacto",
-    url: "mailto:miduga@gmail.com",
+    url: `${base}/#contacto`,
   },
 ]
 ---
 
 <header
-  class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
+  class="fixed top-0 z-50 flex items-center justify-center w-full px-3 mx-auto mt-3"
 >
   <nav
-    class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center"
+    aria-label="Navegación principal"
+    class="flex max-w-full px-2 text-xs font-medium border border-white/60 shadow-lg rounded-full text-gray-600 bg-white/80 dark:bg-gray-900/80 dark:border-white/10 dark:text-gray-200 justify-center items-center backdrop-blur-xl sm:px-3 sm:text-sm"
   >
     {
       navItems.map((link) => (
         <a
-          class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400"
+          class="relative block px-2 py-2.5 transition hover:text-amber-600 dark:hover:text-amber-400 sm:px-3"
           aria-label={link.label}
           href={link.url}
         >
@@ -43,6 +47,7 @@ const navItems = [
       ))
     }
     <ThemeToggle />
+    <a class="sr-only" href={`mailto:${config.email}`}>Enviar correo</a>
   </nav>
 </header>
 
@@ -56,9 +61,9 @@ const navItems = [
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
             if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-yellow-500")
+              item.classList.add("text-amber-600")
             } else {
-              item.classList.remove("text-yellow-500")
+              item.classList.remove("text-amber-600")
             }
           })
         }

@@ -1,30 +1,63 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro";
-const EXPERIENCIE = [
+const EXPERIENCE = [
     {
-        title: "Programador Full Stack",
-        date: "2023-Actualidad",
-        company: "Renvance",
+        title: "Analista de Soluciones Digitales / Full Stack Developer — AI Solutions",
+        date: "Febrero de 2025 — Actualidad",
+        company: "Softtek",
+        eyebrow: "AI · Healthcare · Insurance",
+        summary: "Desarrollo soluciones digitales basadas en inteligencia artificial para iniciativas de innovación.",
         description:
-            "Responsable del desarrollo frontend en ReactTS. Implementación de todos los componentes, funcionalidad, diseño y estructura de la aplicación. Entre los microservicios, llevé a cabo el desarrollo de la api de Smart Contracts, para deployar tokens de propiedad; Tests de integración entre microservicios y desarrollo de los mismos trabajando con Python y NodeJs",
+            "Participo en el diseño técnico, frontend, backend, integración cloud y evolución funcional de productos internos con agentes especializados, documentos, búsqueda semántica y gestión de conversaciones.",
+        highlights: [
+          "Desarrollo de interfaces reutilizables con React, TypeScript, Vite y Tailwind.",
+          "APIs con Python y Flask, streaming, autenticación, permisos e historial.",
+          "Integración con Azure OpenAI, Azure AI Search y Cosmos DB.",
+          "Análisis de viabilidad, arquitectura, riesgos, calidad y acompañamiento técnico.",
+        ],
+        technologies: ["React", "TypeScript", "Python", "Flask", "Azure OpenAI", "AI Search", "Cosmos DB", "Docker", "GitHub Actions"],
+        link: "https://www.softtek.com",
+    },
+    {
+        title: "Full Stack Developer / Technical Lead",
+        date: "Junio de 2023 — Febrero de 2025",
+        company: "Renvance",
+        eyebrow: "SaaS · Blockchain",
+        summary: "Construcción de una plataforma para tokenización de activos inmobiliarios.",
+        description:
+            "Tuve ownership sobre gran parte del frontend y el desarrollo de smart contracts, colaborando además en arquitectura, organización del equipo y resolución de problemas técnicos.",
+        highlights: [
+          "Aplicación web con React y TypeScript e integración con Web3 y billeteras.",
+          "Diseño y desarrollo de contratos inteligentes en Solidity.",
+          "APIs y microservicios con Python, FastAPI y Node.js.",
+          "Pruebas de integración, coordinación de tareas y evaluación de seguridad y trazabilidad.",
+        ],
+        technologies: ["React", "TypeScript", "Python", "FastAPI", "Node.js", "Solidity", "Web3", "Docker"],
         link: "https://renvance.com",
     },
     {
-        title: "Programador Principal en Frontend",
-        date: "2022-2023",
-        company: "Pym Gestiones",
-        description:
-            "Encargado de desarrollar un sitio web personalizado que satisfaga las necesidades específicas de un cliente. El frontend se realizó utilizando ReactTS con Redux y para el backend hemos utilizado Aspnet (C#). el diseño de la página corresponde a un diseño personalizado hecho por el cliente.",
-        link: "https://pymgestiones.com.ar",
+        title: "Computer Technician / Soporte de Infraestructura",
+        date: "Septiembre de 2022 — Mayo de 2023",
+        company: "Prisma Tech",
+        eyebrow: "Infraestructura · Operaciones",
+        summary: "Soporte técnico y operativo con foco en estabilidad de infraestructura.",
+        description: "Esta etapa consolidó una mirada práctica sobre operación, redes, diagnóstico y continuidad de los sistemas.",
+        highlights: [
+          "Administración y monitoreo de servidores.",
+          "Resolución de incidencias y troubleshooting de redes y sistemas.",
+          "Mantenimiento preventivo y optimización de estabilidad y rendimiento.",
+        ],
+        technologies: ["Servidores", "Redes", "Monitoreo", "Troubleshooting"],
+        link: undefined,
     },
 ];
 ---
 
 <ol class="relative mt-16">
     {
-        EXPERIENCIE.map((experiencie) => (
-            <li class="">
-                <ExperienceItem {...experiencie} />
+        EXPERIENCE.map((experience) => (
+            <li>
+                <ExperienceItem {...experience} />
             </li>
         ))
     }

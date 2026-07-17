@@ -12,6 +12,9 @@ interface Props {
 }
 
 const { description, title } = Astro.props
+const base = import.meta.env.BASE_URL.replace(/\/$/, "")
+const canonical = Astro.url
+const socialImage = new URL(`${base}/profile.png`, Astro.site)
 ---
 
 <!doctype html>
@@ -20,13 +23,23 @@ const { description, title } = Astro.props
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#111827" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <ClientRouter />
   </head>
 
   <body class="relative text-black dark:text-white">
+    <a href="#contenido" class="fixed z-[60] px-4 py-2 text-white -translate-y-20 bg-gray-900 rounded-md left-4 top-4 focus:translate-y-0">Saltar al contenido</a>
     <div
       class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950
       bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
@@ -58,6 +71,43 @@ const { description, title } = Astro.props
         html {
           scroll-behavior: auto;
         }
+      }
+
+      .item-show-up {
+        view-timeline-name: --image;
+        view-timeline-axis: block;
+        animation-timeline: --image;
+        animation-name: show;
+        animation-range: entry 15% cover 30%;
+        animation-fill-mode: both;
+      }
+
+      @keyframes show {
+        from {
+          opacity: 0;
+          scale: 45%;
+        }
+
+        to {
+          opacity: 1;
+          scale: 100%;
+        }
+      }
+
+      .project-image {
+        animation: project-parallax linear both;
+        animation-timeline: view();
+        animation-range: entry 0% exit 100%;
+      }
+
+      @keyframes project-parallax {
+        from { object-position: center 35%; }
+        to { object-position: center 65%; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .item-show-up { animation: none; }
+        .project-image { animation: none; }
       }
 
       @media (prefers-color-scheme: dark) {

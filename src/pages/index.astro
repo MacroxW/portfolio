@@ -9,45 +9,88 @@ import ProfileCheck from "@/components/icons/ProfileCheck.astro"
 import Projects from "@/components/Projects.astro"
 import SectionContainer from "@/components/SectionContainer.astro"
 import Hero from "@/components/Hero.astro"
+import TransactionScroll from "@/components/TransactionScroll.astro"
 ---
 
 <Layout
-  title="Portafolio Marcos Wendy - FullStack Developer"
-  description="Portafolio de Marcos Wendy, FullStack Developer. Experiencia laboral, proyectos y sobre mí."
+  title="Marcos Wendy | Software Developer & AI Solutions"
+  description="Software Developer especializado en productos full stack, inteligencia artificial, arquitectura y cloud. Experiencia profesional en React, TypeScript, Python, .NET y Azure."
 >
-  <main class="px-4">
-    <SectionContainer class="py-16 md:py-36">
+  <main id="contenido" class="px-4">
+    <SectionContainer class="pt-32 pb-20 md:pt-44 md:pb-28">
       <Hero />
     </SectionContainer>
-    <div class="space-y-24">
+    <div class="space-y-28 pb-16">
+    <SectionContainer class="">
+      <div class="grid overflow-hidden border border-gray-200 shadow-sm rounded-3xl bg-white/70 dark:bg-gray-900/70 dark:border-gray-800 sm:grid-cols-2 lg:grid-cols-4">
+        {[{value:"2022",label:"Experiencia profesional desde"},{value:"600+",label:"Usuarios en una plataforma real"},{value:"End-to-end",label:"Producto, arquitectura y cloud"},{value:"AI · SaaS · Web3",label:"Dominios de experiencia"}].map((item) => <div class="p-6 border-b border-gray-200 last:border-0 dark:border-gray-800 sm:[&:nth-child(odd)]:border-r lg:border-b-0 lg:border-r"><strong class="block text-xl text-gray-900 dark:text-white">{item.value}</strong><span class="block mt-1 text-sm leading-5 text-gray-500 dark:text-gray-400">{item.label}</span></div>)}
+      </div>
+    </SectionContainer>
     <SectionContainer id="experiencia">
-      <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
-      >
+      <p class="mb-2 text-sm font-semibold tracking-widest uppercase text-amber-600 dark:text-amber-400">Trayectoria</p>
+      <h2 class="flex items-center mb-3 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
         <Briefcase class="size-8" />
-        Experiencia laboral
+        Experiencia profesional
       </h2>
-      <Experience />
+      <p class="max-w-2xl mb-10 text-gray-600 dark:text-gray-400">Productos construidos, responsabilidades asumidas y el impacto generado en cada etapa.</p>
+      <div class="item-show-up">
+        <Experience />
+      </div>
     </SectionContainer>
 
+    <TransactionScroll />
+
     <SectionContainer id="proyectos">
-      <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
-      >
+      <p class="mb-2 text-sm font-semibold tracking-widest uppercase text-amber-600 dark:text-amber-400">Casos destacados</p>
+      <h2 class="flex items-center mb-3 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
         <CodeIcon class="size-7" />
-        Proyectos
+        Productos y soluciones
       </h2>
+      <p class="max-w-2xl mb-10 text-gray-600 dark:text-gray-400">Una selección de productos comerciales y plataformas complejas. Los casos privados se describen sin exponer información sensible.</p>
       <Projects />
     </SectionContainer>
 
+    <SectionContainer id="capacidades">
+      <p class="mb-2 text-sm font-semibold tracking-widest uppercase text-amber-600 dark:text-amber-400">Stack y forma de trabajo</p>
+      <h2 class="mb-10 text-3xl font-semibold text-black/80 dark:text-white">Capacidades técnicas</h2>
+      <div class="item-show-up grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {[
+          {title:"Frontend", items:["React", "TypeScript", "Astro", "Next.js", "React Native", "Tailwind", "Zustand", "Redux", "TanStack Query"]},
+          {title:"Backend", items:["Python", "Flask", "FastAPI", "Node.js", "NestJS", "Koa", "ASP.NET Core", "REST", "SSE", "WebSockets"]},
+          {title:"Inteligencia artificial", items:["Azure OpenAI", "Agentes", "Embeddings", "RAG", "Búsqueda vectorial", "Azure AI Search", "Procesamiento documental"]},
+          {title:"Datos", items:["PostgreSQL", "MongoDB", "Cosmos DB", "MySQL", "SQL Server", "pgvector"]},
+          {title:"Cloud & DevOps", items:["Azure", "AWS", "Google Cloud", "Docker", "Nginx", "GitHub Actions", "CI/CD", "Terraform", "Monitoreo"]},
+          {title:"Arquitectura y liderazgo", items:["Diseño de arquitectura", "Análisis de viabilidad", "Descomposición técnica", "Code review", "QA técnico", "Documentación", "Mentoría"]},
+        ].map((area) => <article class="p-6 border border-gray-200 bg-white/60 rounded-3xl dark:bg-gray-900/60 dark:border-gray-800"><h3 class="text-lg font-bold text-gray-900 dark:text-white">{area.title}</h3><ul class="flex flex-wrap gap-2 mt-4">{area.items.map((item) => <li class="px-2.5 py-1 text-xs font-medium text-gray-600 bg-gray-100 rounded-full dark:text-gray-300 dark:bg-gray-800">{item}</li>)}</ul></article>)}
+      </div>
+    </SectionContainer>
+
     <SectionContainer id="sobre-mi">
-      <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
-      >
+      <p class="mb-2 text-sm font-semibold tracking-widest uppercase text-amber-600 dark:text-amber-400">Cómo pienso y trabajo</p>
+      <h2 class="flex items-center mb-10 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
         <ProfileCheck class="size-8" />
         Sobre mí
       </h2>
-      <AboutMe />
+      <div class="item-show-up">
+        <AboutMe />
+      </div>
+    </SectionContainer>
+
+    <SectionContainer id="contacto">
+      <div class="item-show-up relative overflow-hidden p-8 text-white bg-gray-900 rounded-[2rem] md:p-12">
+        <div class="absolute top-0 right-0 rounded-full size-64 bg-amber-400/20 blur-3xl"></div>
+        <div class="relative max-w-2xl">
+          <p class="text-sm font-semibold tracking-widest text-amber-300 uppercase">Contacto</p>
+          <h2 class="mt-3 text-3xl font-bold md:text-4xl">¿Construimos algo valioso?</h2>
+          <p class="mt-4 text-lg leading-8 text-gray-300">Estoy disponible para conversar sobre oportunidades full stack, soluciones con IA y desafíos de arquitectura de producto.</p>
+          <div class="flex flex-wrap gap-3 mt-7">
+            <a class="inline-flex items-center px-5 py-2.5 font-semibold text-gray-900 bg-white rounded-full hover:bg-amber-300" href="mailto:wendymarcos2@gmail.com">Enviar correo</a>
+            <a class="inline-flex items-center px-5 py-2.5 font-semibold text-white border border-white/30 rounded-full hover:border-white" href="https://www.linkedin.com/in/marcoswendy/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="inline-flex items-center px-5 py-2.5 font-semibold text-white border border-white/30 rounded-full hover:border-white" href="https://github.com/MacroxW" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+          <p class="mt-5 text-sm text-gray-400">Buenos Aires, Argentina · Presencial, híbrido o remoto</p>
+        </div>
+      </div>
     </SectionContainer>
   </div>
   </main>
