@@ -16,7 +16,12 @@ const navItems = [
     url: `${base}/#proyectos`,
   },
   {
-    title: "Capacidades",
+    title: "Wubboo",
+    label: "wubboo",
+    url: `${base}/#wubboo`,
+  },
+  {
+    title: "Stack",
     label: "capacidades",
     url: `${base}/#capacidades`,
   },
@@ -29,16 +34,16 @@ const navItems = [
 ---
 
 <header
-  class="fixed top-0 z-50 flex items-center justify-center w-full px-3 mx-auto mt-3"
+  class="fixed top-0 z-50 flex items-center justify-center w-full px-1 mx-auto mt-3 sm:px-3"
 >
   <nav
     aria-label="Navegación principal"
-    class="flex max-w-full px-2 text-xs font-medium border border-white/60 shadow-lg rounded-full text-gray-600 bg-white/80 dark:bg-gray-900/80 dark:border-white/10 dark:text-gray-200 justify-center items-center backdrop-blur-xl sm:px-3 sm:text-sm"
+    class="flex max-w-full overflow-x-auto px-1 text-[10px] font-medium border border-white/60 shadow-lg rounded-full text-gray-600 bg-white/90 dark:bg-gray-900/90 dark:border-white/10 dark:text-gray-200 justify-start items-center backdrop-blur-xl min-[360px]:text-[11px] sm:px-3 sm:text-sm"
   >
     {
       navItems.map((link) => (
         <a
-          class="relative block px-2 py-2.5 transition hover:text-amber-600 dark:hover:text-amber-400 sm:px-3"
+          class="relative block shrink-0 px-1.5 py-2.5 transition hover:text-amber-600 dark:hover:text-amber-400 min-[360px]:px-2 sm:px-3"
           aria-label={link.label}
           href={link.url}
         >

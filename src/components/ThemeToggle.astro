@@ -10,7 +10,7 @@ const THEMES = [
 ]
 ---
 
-<div class="relative ml-1 mr-1">
+<div class="theme-control relative ml-1 mr-1">
   <button
     id="theme-toggle-btn"
     type="button"
@@ -139,3 +139,9 @@ const THEMES = [
     })
   })
 </script>
+
+<style>
+  @media (max-width: 359px) {
+    .theme-control { display: none; }
+  }
+</style>

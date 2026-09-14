@@ -5,32 +5,34 @@ const EXPERIENCE = [
         title: "Analista de Soluciones Digitales / Full Stack Developer — AI Solutions",
         date: "Febrero de 2025 — Actualidad",
         company: "Softtek",
+        location: "Argentina · Híbrido",
         eyebrow: "AI · Healthcare · Insurance",
         summary: "Desarrollo soluciones digitales basadas en inteligencia artificial para iniciativas de innovación.",
         description:
-            "Participo en el diseño técnico, frontend, backend, integración cloud y evolución funcional de productos internos con agentes especializados, documentos, búsqueda semántica y gestión de conversaciones.",
+            "Desarrollo aplicaciones orientadas a agentes de IA, automatización, procesamiento de información y herramientas internas para healthcare e insurance, sin divulgar información confidencial de clientes.",
         highlights: [
-          "Desarrollo de interfaces reutilizables con React, TypeScript, Vite y Tailwind.",
-          "APIs con Python y Flask, streaming, autenticación, permisos e historial.",
-          "Integración con Azure OpenAI, Azure AI Search y Cosmos DB.",
-          "Análisis de viabilidad, arquitectura, riesgos, calidad y acompañamiento técnico.",
+          "Interfaces web con React, TypeScript, Vite y Tailwind CSS.",
+          "APIs con Python y Flask, autenticación, permisos, SSE y WebSockets.",
+          "Integraciones con Azure OpenAI, RAG, embeddings, Azure AI Search y Cosmos DB.",
+          "Arquitectura, despliegue, observabilidad y CI/CD sobre servicios de Azure.",
         ],
-        technologies: ["React", "TypeScript", "Python", "Flask", "Azure OpenAI", "AI Search", "Cosmos DB", "Docker", "GitHub Actions"],
+        technologies: ["React", "TypeScript", "Python", "Flask", "Azure OpenAI", "AI Search", "Cosmos DB", "Docker", "GitHub Actions", "Nginx", "Application Insights"],
         link: "https://www.softtek.com",
     },
     {
-        title: "Full Stack Developer / Technical Lead",
+        title: "Full Stack Developer / Technical Leadership",
         date: "Junio de 2023 — Febrero de 2025",
         company: "Renvance",
+        location: "Argentina · Remoto",
         eyebrow: "SaaS · Blockchain",
         summary: "Construcción de una plataforma para tokenización de activos inmobiliarios.",
         description:
-            "Tuve ownership sobre gran parte del frontend y el desarrollo de smart contracts, colaborando además en arquitectura, organización del equipo y resolución de problemas técnicos.",
+            "Participé en el desarrollo de una plataforma orientada a tokenización de activos inmobiliarios, trabajando sobre frontend, backend, arquitectura y blockchain.",
         highlights: [
-          "Aplicación web con React y TypeScript e integración con Web3 y billeteras.",
-          "Diseño y desarrollo de contratos inteligentes en Solidity.",
-          "APIs y microservicios con Python, FastAPI y Node.js.",
-          "Pruebas de integración, coordinación de tareas y evaluación de seguridad y trazabilidad.",
+          "Desarrollo de interfaces web, APIs, lógica de negocio y microservicios.",
+          "Diseño y desarrollo de smart contracts en Solidity e integración Web3.",
+          "Participación en decisiones de arquitectura y evaluación de seguridad y trazabilidad.",
+          "Coordinación técnica y organización del trabajo del equipo.",
         ],
         technologies: ["React", "TypeScript", "Python", "FastAPI", "Node.js", "Solidity", "Web3", "Docker"],
         link: "https://renvance.com",
@@ -40,20 +42,21 @@ const EXPERIENCE = [
         date: "Septiembre de 2022 — Mayo de 2023",
         company: "Prisma Tech",
         eyebrow: "Infraestructura · Operaciones",
-        summary: "Soporte técnico y operativo con foco en estabilidad de infraestructura.",
-        description: "Esta etapa consolidó una mirada práctica sobre operación, redes, diagnóstico y continuidad de los sistemas.",
+        summary: "Administración, mantenimiento y soporte de infraestructura tecnológica.",
+        description: "Monitoreo de servidores, resolución de incidencias y mantenimiento de sistemas internos.",
         highlights: [
           "Administración y monitoreo de servidores.",
           "Resolución de incidencias y troubleshooting de redes y sistemas.",
           "Mantenimiento preventivo y optimización de estabilidad y rendimiento.",
         ],
-        technologies: ["Servidores", "Redes", "Monitoreo", "Troubleshooting"],
+        technologies: ["Servers", "Infrastructure", "Networking", "Troubleshooting", "Systems administration"],
         link: undefined,
+        featured: false,
     },
 ];
 ---
 
-<ol class="relative mt-16">
+<ol class="relative mt-10">
     {
         EXPERIENCE.map((experience) => (
             <li>

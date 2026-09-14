@@ -1,109 +1,60 @@
 ---
+import GitHubIcon from "./icons/GitHub.astro";
 import Link from "./icons/Link.astro";
-import LinkButton from "./ui/LinkButton.astro";
-
-const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const PROJECTS = [
-    {
-        title: "Wubboo",
-        kicker: "Producto propio · Web & Mobile",
-        description: "Marketplace social para descubrir y contratar profesionales, con perfiles, publicaciones, agenda, reservas, propuestas, pagos y videollamadas.",
-        role: "Diseño de producto, UX y desarrollo end-to-end de la arquitectura web, móvil y backend.",
-        result: "Un producto integral que conecta adquisición, coordinación del servicio y cobro en un mismo flujo.",
-        tags: ["Astro", "React", "React Native", "Node.js", "PostgreSQL", "Mercado Pago", "Docker"],
-        accent: "from-violet-500 to-fuchsia-400",
-        mark: "WU",
-        image: `${base}/projects/wubboo.webp`,
-        link: undefined,
-    },
-    {
-        title: "AI Agents Platform",
-        kicker: "Plataforma empresarial · IA",
-        description: "Plataforma para crear y utilizar agentes especializados con conocimiento, archivos, historial de conversaciones, roles y herramientas.",
-        role: "Desarrollo full stack, diseño técnico e integración de servicios de IA y datos en Azure.",
-        result: "Caso presentado sin nombres de clientes, conversaciones ni detalles internos sensibles.",
-        tags: ["React", "TypeScript", "Python", "Flask", "Azure OpenAI", "AI Search", "Cosmos DB"],
-        accent: "from-sky-500 to-cyan-300",
-        mark: "AI",
-        image: `${base}/projects/ai-agents.webp`,
-        link: undefined,
-    },
-    {
-        title: "Renvance",
-        kicker: "PropTech · Blockchain",
-        description: "Plataforma para tokenización de activos inmobiliarios con arquitectura de microservicios, smart contracts e integración Web3.",
-        role: "Ownership de frontend y contratos inteligentes, con responsabilidades de liderazgo y arquitectura.",
-        result: "Integración completa entre experiencia web, servicios de negocio y trazabilidad on-chain.",
-        tags: ["React", "FastAPI", "Node.js", "Solidity", "Web3", "Docker"],
-        accent: "from-amber-500 to-orange-300",
-        mark: "RE",
-        image: `${base}/projects/renvance.webp`,
-        link: "https://renvance.com",
-    },
-    {
-        title: "PyM Gestiones",
-        kicker: "Proyecto independiente · SaaS",
-        description: "Plataforma administrativa creada a medida, con módulos de gestión, roles, permisos y estados de negocio.",
-        role: "Desarrollo full stack, trabajo directo con requerimientos del cliente, despliegue y soporte productivo.",
-        result: "Producto utilizado por más de 600 usuarios en un entorno real.",
-        tags: ["React", "TypeScript", "Redux", ".NET", "C#", "SQL", "Docker"],
-        accent: "from-emerald-500 to-lime-300",
-        mark: "PY",
-        image: `${base}/projects/pym-gestiones.webp`,
-        link: "https://pymgestiones.com.ar",
-    },
+  {
+    title: "Promptia",
+    kicker: "IA · Aplicación full stack",
+    description: "Chat con Google Gemini, agentes personalizables, herramientas, autenticación JWT, conversaciones persistentes y respuestas por streaming.",
+    detail: "Monorepo con aplicación React y API Express, contratos compartidos, MongoDB y validación con Zod.",
+    tags: ["React", "TypeScript", "Express", "MongoDB", "Gemini", "SSE"],
+    link: "https://github.com/MacroxW/promptia",
+  },
+  {
+    title: "ISO 3166 Argentina",
+    kicker: "Open source · Datos y backend",
+    description: "Sistema jerárquico de países, provincias, departamentos y localidades argentinas basado en ISO 3166 y fuentes oficiales de INDEC.",
+    detail: "Incluye entidades TypeORM, coordenadas, soporte para AMBA, exportaciones JSON y 23 tests de integración documentados.",
+    tags: ["TypeScript", "TypeORM", "SQLite", "Vitest", "Open Data"],
+    link: "https://github.com/MacroxW/iso3166-countries-argentina",
+  },
+  {
+    title: "Console Warrior",
+    kicker: "Developer tooling · VS Code",
+    description: "Extensión open source para visualizar logs de ejecución directamente junto al código y reducir el cambio de contexto durante el desarrollo.",
+    detail: "Proyecto en desarrollo con decoraciones del editor, captura de logs y gestión de servidores Vite.",
+    tags: ["TypeScript", "VS Code API", "Developer Experience", "Vite"],
+    link: "https://github.com/MacroxW/console-warrior",
+  },
+  {
+    title: "PyM Gestiones",
+    kicker: "Producto independiente · SaaS",
+    description: "Plataforma administrativa creada a medida con módulos de gestión, roles, permisos y estados de negocio.",
+    detail: "Desarrollo full stack, relevamiento con el cliente, despliegue y soporte productivo para un producto utilizado por más de 600 usuarios.",
+    tags: ["React", "TypeScript", "Redux", ".NET", "C#", "SQL", "Docker"],
+    link: "https://pymgestiones.com.ar",
+    external: true,
+  },
 ];
 ---
 
-<div class="project-stories">
-    {
-        PROJECTS.map(({ title, kicker, description, role, result, tags, link, accent, mark, image }) => (
-            <article class="project-story-card group flex h-full flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white/70 shadow-sm dark:border-gray-800 dark:bg-gray-900/70">
-                <div class={`project-cover relative flex items-end overflow-hidden bg-gradient-to-br ${accent}`}>
-                  <img src={image} alt={`Ilustración conceptual del proyecto ${title}`} width="1672" height="941" loading="lazy" decoding="async" class="project-image absolute inset-0 size-full object-cover transition duration-500 group-hover:scale-105" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-transparent to-transparent"></div>
-                  <span class="relative p-6 text-4xl font-black tracking-tighter text-white">{mark}</span>
-                </div>
-                <div class="project-copy flex flex-1 flex-col p-6 md:p-9">
-                  <p class="text-xs font-semibold tracking-widest uppercase text-amber-600 dark:text-amber-400">{kicker}</p>
-                  <h3 class="mt-2 text-2xl font-bold text-gray-900 dark:text-white">{title}</h3>
-                  <p class="mt-3 leading-7 text-gray-600 dark:text-gray-300">{description}</p>
-                  <dl class="grid gap-3 mt-5 text-sm">
-                    <div><dt class="font-semibold text-gray-900 dark:text-white">Mi rol</dt><dd class="mt-1 text-gray-600 dark:text-gray-400">{role}</dd></div>
-                    <div><dt class="font-semibold text-gray-900 dark:text-white">Resultado</dt><dd class="mt-1 text-gray-600 dark:text-gray-400">{result}</dd></div>
-                  </dl>
-                  <ul class="flex flex-wrap gap-2 mt-5" aria-label={`Tecnologías de ${title}`}>
-                    {tags.map((tag) => <li class="px-2.5 py-1 text-xs font-medium bg-gray-100 rounded-full text-gray-700 dark:bg-gray-800 dark:text-gray-300">{tag}</li>)}
-                  </ul>
-                  {link && <footer class="mt-auto pt-6"><LinkButton href={link}><Link class="size-4" /> Visitar sitio</LinkButton></footer>}
-                </div>
-            </article>
-        ))
-    }
+<div class="grid gap-4 md:grid-cols-2">
+  {PROJECTS.map(({ title, kicker, description, detail, tags, link, external }) => (
+    <article class="flex flex-col rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-gray-800 dark:bg-gray-900 md:p-6">
+      <p class="text-xs font-semibold tracking-widest uppercase text-amber-600 dark:text-amber-400">{kicker}</p>
+      <h3 class="mt-3 text-2xl font-bold text-gray-900 dark:text-white">{title}</h3>
+      <p class="mt-3 leading-6 text-gray-600 dark:text-gray-300">{description}</p>
+      <p class="mt-2 text-sm leading-5 text-gray-500 dark:text-gray-400">{detail}</p>
+      <ul class="flex flex-wrap gap-1.5 mt-4" aria-label={`Tecnologías de ${title}`}>
+        {tags.map((tag) => <li class="rounded-full bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-700 dark:bg-gray-800 dark:text-gray-300">{tag}</li>)}
+      </ul>
+      <footer class="mt-auto pt-5">
+        <a href={link} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 font-semibold text-gray-900 underline-offset-4 hover:text-amber-600 hover:underline dark:text-white dark:hover:text-amber-400">
+          {external ? <Link class="size-4" /> : <GitHubIcon class="size-4" />}
+          {external ? "Visitar producto" : "Ver repositorio"}
+        </a>
+      </footer>
+    </article>
+  ))}
 </div>
-
-<style>
-  .project-stories { display: grid; gap: clamp(5rem, 12vw, 10rem); }
-  .project-story-card { transform-origin: center top; box-shadow: 0 30px 90px rgb(0 0 0 / .12); }
-  .project-cover { height: clamp(18rem, 56vw, 31rem); }
-
-  @supports (animation-timeline: view()) {
-    .project-story-card {
-      animation: project-cinematic linear both;
-      animation-timeline: view();
-      animation-range: entry 0% exit 12%;
-    }
-
-  }
-
-  @keyframes project-cinematic {
-    0% { opacity: .15; scale: .62; translate: 0 8rem; border-radius: 5rem; }
-    35%, 72% { opacity: 1; scale: 1; translate: 0 0; border-radius: 1.5rem; }
-    100% { opacity: .58; scale: .84; translate: 0 -3rem; border-radius: 3rem; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .project-story-card { animation: none !important; }
-  }
-</style>

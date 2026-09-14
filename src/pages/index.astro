@@ -1,97 +1,119 @@
 ---
-import Layout from "@/layouts/Layout.astro"
+import Layout from "@/layouts/Layout.astro";
+import AboutMe from "@/components/AboutMe.astro";
+import Briefcase from "@/components/icons/Briefcase.astro";
+import CodeIcon from "@/components/icons/Code.astro";
+import GitHubIcon from "@/components/icons/GitHub.astro";
+import ProfileCheck from "@/components/icons/ProfileCheck.astro";
+import Experience from "@/components/Experience.astro";
+import Projects from "@/components/Projects.astro";
+import SectionContainer from "@/components/SectionContainer.astro";
+import Hero from "@/components/Hero.astro";
+import config from "@/config";
 
-import AboutMe from "@/components/AboutMe.astro"
-import Briefcase from "@/components/icons/Briefcase.astro"
-import CodeIcon from "@/components/icons/Code.astro"
-import Experience from "@/components/Experience.astro"
-import ProfileCheck from "@/components/icons/ProfileCheck.astro"
-import Projects from "@/components/Projects.astro"
-import SectionContainer from "@/components/SectionContainer.astro"
-import Hero from "@/components/Hero.astro"
-import TransactionScroll from "@/components/TransactionScroll.astro"
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const STACK = [
+  { title: "Frontend", items: ["React", "TypeScript", "JavaScript", "Astro", "Next.js", "Vite", "Tailwind CSS", "shadcn/ui", "Material UI"] },
+  { title: "Mobile", items: ["React Native", "Expo", "NativeWind", "Zustand", "TanStack Query", "Reanimated"] },
+  { title: "Backend", items: ["Node.js", "TypeScript", "NestJS", "Koa", "Python", "Flask", "FastAPI", "C#", "ASP.NET Core"] },
+  { title: "Inteligencia artificial", items: ["Azure OpenAI", "LLM integrations", "AI Agents", "RAG", "Embeddings", "Vector Search", "Azure AI Search"] },
+  { title: "Bases de datos", items: ["PostgreSQL", "MongoDB", "Azure Cosmos DB", "MySQL"] },
+  { title: "Cloud & DevOps", items: ["Azure", "App Service", "Container Registry", "Docker", "GitHub Actions", "Nginx", "AWS", "Google Cloud"] },
+  { title: "Blockchain", items: ["Solidity", "Web3", "Smart Contracts"] },
+  { title: "Arquitectura", items: ["REST APIs", "Microservices", "Real-time systems", "WebSockets", "SSE", "Dependency Injection / IoC", "CI/CD"] },
+];
 ---
 
 <Layout
-  title="Marcos Wendy | Software Developer & AI Solutions"
-  description="Software Developer especializado en productos full stack, inteligencia artificial, arquitectura y cloud. Experiencia profesional en React, TypeScript, Python, .NET y Azure."
+  title="Marcos Wendy | Full Stack Developer & AI Solutions"
+  description="Full Stack Developer especializado en AI Solutions, software architecture, React, Node.js, Python y Azure. Desarrollo productos web, mobile y plataformas escalables."
 >
   <main id="contenido" class="px-4">
-    <SectionContainer class="pt-32 pb-20 md:pt-44 md:pb-28">
-      <Hero />
-    </SectionContainer>
-    <div class="space-y-28 pb-16">
-    <SectionContainer class="">
-      <div class="grid overflow-hidden border border-gray-200 shadow-sm rounded-3xl bg-white/70 dark:bg-gray-900/70 dark:border-gray-800 sm:grid-cols-2 lg:grid-cols-4">
-        {[{value:"2022",label:"Experiencia profesional desde"},{value:"600+",label:"Usuarios en una plataforma real"},{value:"End-to-end",label:"Producto, arquitectura y cloud"},{value:"AI · SaaS · Web3",label:"Dominios de experiencia"}].map((item) => <div class="p-6 border-b border-gray-200 last:border-0 dark:border-gray-800 sm:[&:nth-child(odd)]:border-r lg:border-b-0 lg:border-r"><strong class="block text-xl text-gray-900 dark:text-white">{item.value}</strong><span class="block mt-1 text-sm leading-5 text-gray-500 dark:text-gray-400">{item.label}</span></div>)}
-      </div>
-    </SectionContainer>
-    <SectionContainer id="experiencia">
-      <p class="mb-2 text-sm font-semibold tracking-widest uppercase text-amber-600 dark:text-amber-400">Trayectoria</p>
-      <h2 class="flex items-center mb-3 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
-        <Briefcase class="size-8" />
-        Experiencia profesional
-      </h2>
-      <p class="max-w-2xl mb-10 text-gray-600 dark:text-gray-400">Productos construidos, responsabilidades asumidas y el impacto generado en cada etapa.</p>
-      <div class="item-show-up">
-        <Experience />
-      </div>
-    </SectionContainer>
+    <SectionContainer class="pt-28 pb-14 md:pt-36 md:pb-20"><Hero /></SectionContainer>
 
-    <TransactionScroll />
-
-    <SectionContainer id="proyectos">
-      <p class="mb-2 text-sm font-semibold tracking-widest uppercase text-amber-600 dark:text-amber-400">Casos destacados</p>
-      <h2 class="flex items-center mb-3 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
-        <CodeIcon class="size-7" />
-        Productos y soluciones
-      </h2>
-      <p class="max-w-2xl mb-10 text-gray-600 dark:text-gray-400">Una selección de productos comerciales y plataformas complejas. Los casos privados se describen sin exponer información sensible.</p>
-      <Projects />
-    </SectionContainer>
-
-    <SectionContainer id="capacidades">
-      <p class="mb-2 text-sm font-semibold tracking-widest uppercase text-amber-600 dark:text-amber-400">Stack y forma de trabajo</p>
-      <h2 class="mb-10 text-3xl font-semibold text-black/80 dark:text-white">Capacidades técnicas</h2>
-      <div class="item-show-up grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {[
-          {title:"Frontend", items:["React", "TypeScript", "Astro", "Next.js", "React Native", "Tailwind", "Zustand", "Redux", "TanStack Query"]},
-          {title:"Backend", items:["Python", "Flask", "FastAPI", "Node.js", "NestJS", "Koa", "ASP.NET Core", "REST", "SSE", "WebSockets"]},
-          {title:"Inteligencia artificial", items:["Azure OpenAI", "Agentes", "Embeddings", "RAG", "Búsqueda vectorial", "Azure AI Search", "Procesamiento documental"]},
-          {title:"Datos", items:["PostgreSQL", "MongoDB", "Cosmos DB", "MySQL", "SQL Server", "pgvector"]},
-          {title:"Cloud & DevOps", items:["Azure", "AWS", "Google Cloud", "Docker", "Nginx", "GitHub Actions", "CI/CD", "Terraform", "Monitoreo"]},
-          {title:"Arquitectura y liderazgo", items:["Diseño de arquitectura", "Análisis de viabilidad", "Descomposición técnica", "Code review", "QA técnico", "Documentación", "Mentoría"]},
-        ].map((area) => <article class="p-6 border border-gray-200 bg-white/60 rounded-3xl dark:bg-gray-900/60 dark:border-gray-800"><h3 class="text-lg font-bold text-gray-900 dark:text-white">{area.title}</h3><ul class="flex flex-wrap gap-2 mt-4">{area.items.map((item) => <li class="px-2.5 py-1 text-xs font-medium text-gray-600 bg-gray-100 rounded-full dark:text-gray-300 dark:bg-gray-800">{item}</li>)}</ul></article>)}
-      </div>
-    </SectionContainer>
-
-    <SectionContainer id="sobre-mi">
-      <p class="mb-2 text-sm font-semibold tracking-widest uppercase text-amber-600 dark:text-amber-400">Cómo pienso y trabajo</p>
-      <h2 class="flex items-center mb-10 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
-        <ProfileCheck class="size-8" />
-        Sobre mí
-      </h2>
-      <div class="item-show-up">
+    <div class="space-y-20 pb-12 md:space-y-24">
+      <SectionContainer id="sobre-mi">
+        <p class="section-kicker">Perfil profesional</p>
+        <h2 class="section-title"><ProfileCheck class="size-8" /> Sobre mí</h2>
         <AboutMe />
-      </div>
-    </SectionContainer>
+      </SectionContainer>
 
-    <SectionContainer id="contacto">
-      <div class="item-show-up relative overflow-hidden p-8 text-white bg-gray-900 rounded-[2rem] md:p-12">
-        <div class="absolute top-0 right-0 rounded-full size-64 bg-amber-400/20 blur-3xl"></div>
-        <div class="relative max-w-2xl">
-          <p class="text-sm font-semibold tracking-widest text-amber-300 uppercase">Contacto</p>
-          <h2 class="mt-3 text-3xl font-bold md:text-4xl">¿Construimos algo valioso?</h2>
-          <p class="mt-4 text-lg leading-8 text-gray-300">Estoy disponible para conversar sobre oportunidades full stack, soluciones con IA y desafíos de arquitectura de producto.</p>
-          <div class="flex flex-wrap gap-3 mt-7">
-            <a class="inline-flex items-center px-5 py-2.5 font-semibold text-gray-900 bg-white rounded-full hover:bg-amber-300" href="mailto:wendymarcos2@gmail.com">Enviar correo</a>
-            <a class="inline-flex items-center px-5 py-2.5 font-semibold text-white border border-white/30 rounded-full hover:border-white" href="https://www.linkedin.com/in/marcoswendy/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="inline-flex items-center px-5 py-2.5 font-semibold text-white border border-white/30 rounded-full hover:border-white" href="https://github.com/MacroxW" target="_blank" rel="noreferrer">GitHub</a>
+      <SectionContainer id="experiencia">
+        <p class="section-kicker">Trayectoria</p>
+        <h2 class="section-title"><Briefcase class="size-8" /> Experiencia profesional</h2>
+        <p class="section-intro">Desarrollo Full Stack, soluciones con IA, arquitectura y operación de productos digitales.</p>
+        <Experience />
+      </SectionContainer>
+
+      <SectionContainer id="wubboo">
+        <article class="overflow-hidden rounded-[2rem] border border-violet-200 bg-white shadow-xl dark:border-violet-900 dark:bg-gray-900">
+          <div class="grid lg:grid-cols-[1.05fr_.95fr]">
+            <div class="p-6 md:p-8 lg:p-9">
+              <div class="flex flex-wrap items-center gap-3">
+                <p class="section-kicker mb-0">Producto propio</p>
+                <span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">En desarrollo activo</span>
+              </div>
+              <h2 class="mt-4 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Wubboo</h2>
+              <p class="mt-2 text-lg font-semibold text-violet-700 dark:text-violet-300">Founder & Full Stack Developer</p>
+              <p class="mt-4 leading-7 text-gray-600 dark:text-gray-300">Plataforma que combina red profesional y marketplace de servicios. Permite crear perfiles, publicar servicios y gestionar solicitudes, propuestas, reservas, agenda, pagos y comunicación con clientes.</p>
+              <p class="mt-4 text-sm leading-6 text-gray-500 dark:text-gray-400">Diseño de producto, UX y desarrollo end-to-end de las aplicaciones web y mobile, backend, arquitectura e integraciones. Repositorios privados.</p>
+              <a href={config.wubboo} target="_blank" rel="noopener noreferrer" class="mt-7 inline-flex items-center rounded-full bg-gray-900 px-5 py-2.5 font-semibold text-white hover:bg-violet-700 dark:bg-white dark:text-gray-900">Visitar Wubboo</a>
+            </div>
+            <img src={`${base}/projects/wubboo.webp`} alt="Vista conceptual del producto Wubboo" width="1672" height="941" loading="lazy" decoding="async" class="h-full min-h-64 max-h-[26rem] w-full object-cover lg:max-h-none" />
           </div>
-          <p class="mt-5 text-sm text-gray-400">Buenos Aires, Argentina · Presencial, híbrido o remoto</p>
+          <div class="grid gap-px border-t border-gray-200 bg-gray-200 dark:border-gray-800 dark:bg-gray-800 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              ["Web", "Astro · React · TypeScript · Tailwind CSS · shadcn/ui · Framer Motion"],
+              ["Mobile", "React Native · Expo · NativeWind · Zustand · TanStack Query · Reanimated"],
+              ["Backend", "Node.js · TypeScript · Koa · NestJS · PostgreSQL"],
+              ["Producto", "Pagos · Reservas · Agenda · Mensajería · Video · Búsqueda semántica"],
+            ].map(([title, copy]) => <div class="bg-white p-5 dark:bg-gray-900"><h3 class="font-bold text-gray-900 dark:text-white">{title}</h3><p class="mt-2 text-sm leading-5 text-gray-500 dark:text-gray-400">{copy}</p></div>)}
+          </div>
+        </article>
+      </SectionContainer>
+
+      <SectionContainer id="proyectos">
+        <p class="section-kicker">Selección técnica y comercial</p>
+        <h2 class="section-title"><CodeIcon class="size-7" /> Otros proyectos</h2>
+        <p class="section-intro">Proyectos propios y públicos que muestran experiencia en IA, backend, datos, tooling y productos utilizados en entornos reales.</p>
+        <Projects />
+      </SectionContainer>
+
+      <SectionContainer id="capacidades">
+        <p class="section-kicker">Stack y forma de trabajo</p>
+        <h2 class="section-title">Capacidades técnicas</h2>
+        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {STACK.map((area) => <article class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900"><h3 class="font-bold text-gray-900 dark:text-white">{area.title}</h3><ul class="mt-3 flex flex-wrap gap-1.5">{area.items.map((item) => <li class="rounded-full bg-gray-100 px-2 py-1 text-[11px] font-medium text-gray-700 dark:bg-gray-800 dark:text-gray-300">{item}</li>)}</ul></article>)}
         </div>
-      </div>
-    </SectionContainer>
-  </div>
+      </SectionContainer>
+
+      <SectionContainer id="educacion">
+        <p class="section-kicker">Formación</p>
+        <h2 class="section-title">Educación e idiomas</h2>
+        <div class="grid gap-5 md:grid-cols-3">
+          <article class="rounded-3xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900 md:col-span-2"><p class="text-sm font-semibold text-amber-600 dark:text-amber-400">ORT Argentina</p><h3 class="mt-2 text-xl font-bold text-gray-900 dark:text-white">Analista de Sistemas</h3><p class="mt-2 text-gray-500 dark:text-gray-400">Formación principal completada.</p><div class="mt-6 border-t border-gray-200 pt-5 dark:border-gray-800"><p class="text-sm font-semibold text-gray-900 dark:text-white">Formación previa</p><p class="mt-2 text-gray-500 dark:text-gray-400">Universidad de Buenos Aires · Ciencias de la Computación</p></div></article>
+          <article class="rounded-3xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900"><p class="text-sm font-semibold text-amber-600 dark:text-amber-400">Idiomas</p><p class="mt-4 font-medium text-gray-900 dark:text-white">Español</p><p class="text-sm text-gray-500 dark:text-gray-400">Nativo</p><p class="mt-4 font-medium text-gray-900 dark:text-white">Inglés</p><p class="text-sm text-gray-500 dark:text-gray-400">Avanzado</p></article>
+        </div>
+      </SectionContainer>
+
+      <SectionContainer id="github">
+        <div class="rounded-[2rem] bg-gray-900 p-8 text-white md:p-12">
+          <GitHubIcon class="size-9" />
+          <p class="mt-6 text-sm font-semibold tracking-widest text-amber-300 uppercase">Código público</p>
+          <h2 class="mt-3 text-3xl font-bold">GitHub y open source</h2>
+          <p class="mt-4 max-w-2xl text-lg leading-8 text-gray-300">Repositorios públicos con experimentos de IA, procesamiento de datos, herramientas para desarrolladores y aplicaciones full stack. La selección del portfolio usa datos estáticos para evitar requests y rate limits en cada visita.</p>
+          <a href={config.github} target="_blank" rel="noopener noreferrer" class="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 font-semibold text-gray-900 hover:bg-amber-300"><GitHubIcon class="size-4" /> Ver GitHub</a>
+        </div>
+      </SectionContainer>
+
+      <SectionContainer id="contacto">
+        <div class="rounded-[2rem] border border-gray-200 bg-white p-8 dark:border-gray-800 dark:bg-gray-900 md:p-12">
+          <p class="section-kicker">Contacto</p><h2 class="text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">¿Construimos algo valioso?</h2>
+          <p class="mt-4 max-w-2xl text-lg leading-8 text-gray-600 dark:text-gray-300">Disponible para conversar sobre oportunidades Full Stack, soluciones con IA y desafíos de arquitectura de producto.</p>
+          <div class="mt-7 flex flex-wrap gap-3"><a class="rounded-full bg-gray-900 px-5 py-2.5 font-semibold text-white hover:bg-amber-600 dark:bg-white dark:text-gray-900" href={`mailto:${config.email}`}>Contactarme</a><a class="rounded-full border border-gray-300 px-5 py-2.5 font-semibold text-gray-900 hover:border-amber-500 dark:border-gray-700 dark:text-white" href={config.linkedin} target="_blank" rel="noreferrer">LinkedIn</a></div>
+          <p class="mt-5 text-sm text-gray-500 dark:text-gray-400">Buenos Aires, Argentina · Presencial, híbrido o remoto</p>
+        </div>
+      </SectionContainer>
+    </div>
   </main>
 </Layout>
